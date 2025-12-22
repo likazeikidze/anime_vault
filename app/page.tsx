@@ -1,7 +1,11 @@
+import Hero from "@/components/Hero";
+
 export default function Home() {
   return (
-    <main className="min-h-screen flex items-center justify-center">
-      <h1 className="text-3xl font-bold text-white">Anime Vault Skeleton</h1>
+    <main>
+      <h2 className="text-3xl text-white font-bold">Explore Anime</h2>
+
+      <Hero />
     </main>
   );
 }

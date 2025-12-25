@@ -1,4 +1,7 @@
+"use client";
+
 import Image from "next/image";
+import { useState } from "react";
 
 export interface AnimeCardProps {
   id: string;
@@ -18,14 +21,17 @@ interface Props {
 }
 
 const AnimeCard = ({ anime }: Props) => {
+  const [imgSrc, setImgSrc] = useState(anime.image.original);
+
   return (
     <div className="max-w-sm rounded w-full relative">
-      <div className="relative w-full h-[37vh]">
+      <div className="relative w-full aspect-4/6">
         <Image
-          src={anime.image.original}
+          src={imgSrc}
           alt={anime.name}
           fill
           className="rounded-xl"
+          onError={() => setImgSrc("/images/placeholder.jpg")}
         />
       </div>
 

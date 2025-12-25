@@ -2,7 +2,7 @@ import Image from "next/image";
 
 const Footer = () => {
   return (
-    <footer className="bg-dark flex justify-between items-center gap-2 flex-wrap sm:px-16 px-7 py-4">
+    <footer className="bg-[#161921] flex justify-between items-center gap-2 flex-wrap sm:px-16 px-7 py-4">
       <p className="text-white font-bold">@2025 EpicAnimeVault</p>
 
       <Image

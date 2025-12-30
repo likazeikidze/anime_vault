@@ -21,7 +21,9 @@ interface Props {
 }
 
 const AnimeCard = ({ anime }: Props) => {
-  const [imgSrc, setImgSrc] = useState(anime.image.original);
+  const [imgSrc, setImgSrc] = useState(
+    `https://shikimori.one${anime.image.original}`
+  );
 
   return (
     <div className="max-w-sm rounded w-full relative">

@@ -1,7 +1,6 @@
-"use client";
-
 import Image from "next/image";
-import { useState } from "react";
+
+import { MotionDiv } from "./MotionDiv";
 
 export interface AnimeCardProps {
   id: string;
@@ -20,20 +19,27 @@ interface Props {
   index: number;
 }
 
-const AnimeCard = ({ anime }: Props) => {
-  const [imgSrc, setImgSrc] = useState(
-    `https://shikimori.one${anime.image.original}`
-  );
+const variants = {
+  hidden: { opacity: 0 },
+  visible: { opacity: 1 },
+};
 
+const AnimeCard = ({ anime, index }: Props) => {
   return (
-    <div className="max-w-sm rounded w-full relative">
+    <MotionDiv
+      variants={variants}
+      initial="hidden"
+      animate="visible"
+      transition={{ duration: 0.5, delay: index * 0.25, ease: "easeInOut" }}
+      viewport={{ amount: 0 }}
+      className="max-w-sm rounded w-full relative"
+    >
       <div className="relative w-full aspect-4/6">
         <Image
-          src={imgSrc}
+          src={`https://shikimori.one${anime.image.original}`}
           alt={anime.name}
           fill
           className="rounded-xl"
-          onError={() => setImgSrc("/images/placeholder.jpg")}
         />
       </div>
 
@@ -74,7 +80,7 @@ const AnimeCard = ({ anime }: Props) => {
           </div>
         </div>
       </div>
-    </div>
+    </MotionDiv>
   );
 };
 
